@@ -5,10 +5,10 @@ JohnBercow script for ordering gene fragments for SAPP.
 Simply pass a folder of PDBs, or FASTA file (or both) and the script will generate a `.xlsx` file of reverse-translated sequences with the correct overhangs for Golden Gate Assembly into SAPP vectors ready to be uploaded to commerical DNA suppliers.
 
 Explanation for the different scripts:
-`JohnBercow.py`: the main script allowing you to specify the different options.
-`domesticator.py`: the module for DNA optimization.
-`idt.py`: the module with the IDT API for querying synthesizability on the fly. Use `--skip_idt_query` if you don't want to use that option (e.g. using a supplier different than IDT).
-`entry_vectors`: contains the `.fa` files of the SAPP vectors in which cloning can be automated.
+- `JohnBercow.py`: the main script allowing you to specify the different options.
+- `domesticator.py`: the module for DNA optimization.
+- `idt.py`: the module with the IDT API for querying synthesizability on the fly. Use `--skip_idt_query` if you don't want to use that option (e.g. using a supplier different than IDT).
+- `entry_vectors`: contains the `.fa` files of the SAPP vectors in which cloning can be automated.
 
 ```
 usage: JohnBercow.py [-h] [--order_pdbs ORDER_PDBS] [--order_fasta ORDER_FASTA] --order_name ORDER_NAME --vector_db VECTOR_DB --gg_vector GG_VECTOR [GG_VECTOR ...] --species SPECIES --design_prefix
@@ -68,5 +68,13 @@ options:
   --verbose             increase the verbosity of th e output (recommended).
   --echo                generates outputs formated as 384w plates (for ordering into ECHO-qualified plates).
 ```
+
+---
+# Note on IDT credentials
+
+Proper script execution requires IDT credentials (for the IDT API queries). These should be located at `~/idt_credentials`. Details on how to obtain these credentials can be found at https://eu.idtdna.com/pages/tools/apidoc
+
+If you don't want to use IDT credentalis, use `--skip_idt_query`
+
 
 
