@@ -8,7 +8,7 @@ Scripts and files associated with the protocols reported in:
 
 Content:
 - `JB`: contains scripts/files for automated DNA fragment generation for SAPP.
-- `SAPP`: contains scripts/files for automated analysis of protein expression/purification data genered with the SAPP protocol(s).
+- `SAPP`: contains scripts/files for automated analysis of protein expression/purification data generated with the SAPP protocol(s).
 - `DMX`: contains the scripts/files for demultiplexing oligo pools.
 
 
