@@ -74,7 +74,7 @@ options:
 
 Proper script execution requires IDT credentials (for the IDT API queries). These should be located at `~/idt_credentials`. Details on how to obtain these credentials can be found at https://eu.idtdna.com/pages/tools/apidoc
 
-If you don't want to use IDT credentalis, use `--skip_idt_query`
+If you don't have IDT credentials and still want to use the script, use option `--skip_idt_query`
 
 
 
