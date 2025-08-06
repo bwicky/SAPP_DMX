@@ -4,4 +4,4 @@ This jupyter notebook auotmates data processing related to protein engineering e
 
 You will need your DNA fragments as ordered from your supplier and the entry vectors used for cloning.
 
-![SAPP pipeline](Fig1.png)
+![SAPP pipeline](SAPP/Fig1.png)
