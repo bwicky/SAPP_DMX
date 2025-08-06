@@ -28,11 +28,6 @@ from Bio import SeqIO, PDB, SeqUtils, Seq
 import domesticator # Ryan's domesticator with minor modifications.
 import idt # IDT API - from Ryan.
 
-# Get/make IDT API credentials to query sequence complexity.
-idt.user_info_file, idt.token_file = idt.use_dir("~/idt_credentials")
-idt_user_info = idt.get_user_info(idt.user_info_file)
-
-
 # ============================================
 # HARD-CODED DEFINITIONS
 # ============================================
@@ -277,6 +272,10 @@ except:
 if args.echo and not args.no_layout:
     print('The --echo  option is currently only available in conjuction with --no_layout. Switching to this...')
     args.no_layout = True
+
+if not args.skip_idt_query: # Get/make IDT API credentials to query sequence complexity.
+    idt.user_info_file, idt.token_file = idt.use_dir("~/idt_credentials")
+    idt_user_info = idt.get_user_info(idt.user_info_file)
 
 filename = f'{output_folder}{date}_{args.order_name}_{args.species}_{enzyme}'
 
