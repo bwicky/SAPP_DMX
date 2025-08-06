@@ -1,3 +1,5 @@
+# John Bercow for DNA ordering
+
 JohnBercow script for ordering gene fragments for SAPP.
 
 Simply pass a folder of PDBs, or FASTA file (or both) and the script will generate a `.xlsx` file of reverse-translated sequences with the correct overhangs for Golden Gate Assembly into SAPP vectors ready to be uploaded to commerical DNA suppliers.
