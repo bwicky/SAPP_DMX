@@ -1,5 +1,7 @@
-# DMX - Demultiplexing 
-Protocol for demultiplexing clonal plasmids from DNA libraries.
+# DMX - Oligo Pool Demultiplexing 
+
+Scripts and files associated with the DMX protocols.
+
 Code to be uploaded.
 
-![alt text](./Fig_DMX.png)
+![DMX pipeline](dmx.png)
