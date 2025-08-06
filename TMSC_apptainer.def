@@ -19,7 +19,7 @@ From: ubuntu:22.04
     cd /opt/TMSC
     python3.10 -m venv TMSCenv
     . TMSCenv/bin/activate
-    pip install jupyter jupyterlab biopython numpy scipy pandas matplotlib pycorn dnachisel seaborn h5py tables 
+    pip install jupyter jupyterlab biopython numpy scipy pandas matplotlib pycorn dnachisel seaborn h5py tables openpyxl 
 
 %environment
     export PATH="/opt/TMSC/TMSCenv/bin:$PATH"
