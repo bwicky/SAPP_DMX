@@ -304,8 +304,9 @@ def adjust_for_eblock(dna_seq, max_length, gg_int_adapters, avoid_seqs):
                 pad5prime = ''.join(np.random.choice(['A','T','C','G'], size=pad_length + extra))
                 pad3prime = ''.join(np.random.choice(['A','T','C','G'], size=pad_length))
 
+                pad_nocut = True
                 for a_seq in avoid_seqs:
-
+                    # if any cut sequence is found in the padding, try again
                     if (a_seq in pad5prime) or (a_seq in pad3prime):
                         pad_nocut = False
 
