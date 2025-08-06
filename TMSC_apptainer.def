@@ -1,0 +1,30 @@
+Bootstrap: docker
+From: ubuntu:22.04
+# apptainer build TMSC.sif TMSC_apptainer.def
+
+%post
+    export DEBIAN_FRONTEND=noninteractive
+    apt-get update && apt-get install -y \
+      wget bzip2 git vim libgfortran5 php gcc build-essential tar software-properties-common \
+      && rm -rf /var/lib/apt/lists/*
+
+    # Add deadsnakes PPA and install Python 3.10
+    add-apt-repository ppa:deadsnakes/ppa
+    apt-get update
+    apt-get install -y python3.10 python3.10-venv python3-distutils \
+      && rm -rf /var/lib/apt/lists/*
+
+    # install packages
+    mkdir /opt/TMSC
+    cd /opt/TMSC
+    python3.10 -m venv TMSCenv
+    . TMSCenv/bin/activate
+    pip install jupyter jupyterlab biopython numpy scipy pandas matplotlib pycorn dnachisel seaborn h5py tables 
+
+%environment
+    export PATH="/opt/TMSC/TMSCenv/bin:$PATH"
+
+%runscript
+    # Activate virtualenv and run 
+    . /opt/TMSC/TMSCenv/bin/activate
+    exec python "$@"
