@@ -1,0 +1,11 @@
+python JohnBercow.py \
+    --skip_idt_query \
+    --verbose \
+    --order_fasta ./test.fa \
+    --order_name gg00 \
+    --design_prefix JB \
+    --design_id 1  \
+    --gg_vector LM0627 \
+    --species e_coli \
+    --no_layout \
+    --echo
