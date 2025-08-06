@@ -35,7 +35,6 @@ import idt # IDT API - from Ryan.
 # Enzyme / Nterm-tag / Cterm-tag / 5'-sticky / 3'-sticky / description
 vectors = {
     'LM0627':['BsaI','MSG','GSGSHHWGSTHHHHHH','agga','ggttcc', 'C-term SNAC-His'],
-    'LM0668':['BsaI','MGLPDSLEFIASKLAWHHHHHHSG','GSGSSGSGEGQQHHLGGAKQAGDV','agga','ggttcc', 'N-term MGLP and C-term GS-FGG'],
     'LM0670':['BsaI','MSG','GSHHHHHH','agga','ggttcc', 'C-term His'],
     'LM0671':['BsaI','MSKGEELFTGVVPILVELDGDVNGHKFSVRGEGEGDATNGKLTLKFICTTGKLPVPWPTLVTTLTYGVQCFARYPDHMKQHDFFKSAMPEGYVQERTISFKDDGTYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNFNSHNVYITADKQKNGIKANFKIRHNVEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSVLSKDPNEKRDHMVLLEFVTAAGITHGMDELYKGSSG','GSHHHHHH','agga','ggttcc', 'N-term sfGFP and C-term His'],
     'LM0673':['BsaI','MSKGEELFTGVVPILVELDGDVNGHKFSVRGEGEGDATNGKLTLKFICTTGKLPVPWPTLVTTLTYGVQCFARYPDHMKQHDFFKSAMPEGYVQERTISFKDDGTYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNFNSHNVYITADKQKNGIKANFKIRHNVEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSVLSKDPNEKRDHMVLLEFVTAAGITHGMDELYKGGSHHWSSG','GSHHHHHH','agga','ggttcc', 'N-term sfGFP-SNAC and C-term His'],
@@ -100,12 +99,10 @@ parser = argparse.ArgumentParser(
         formatter_class=argparse.RawTextHelpFormatter,
         description=" * Generates an IDT-ready .xlsx file for ordering eBlocks from a folder of PDBs and/or a concatenated FASTA file.\n"
                     " * Appropriate overhangs for Golden Gate cloning into entry vector(s) of interest are added automatically.\n"
-                    " * Reverse translation is performed with Ryan's Domesticator.\n"
-                    " * Sequences are queried against IDT (courtesy of Ryan), and RT is repeated until synthesiability is achieved.\n"
                     " * RECOMMENDED: check your GG assemblies at https://goldengate.neb.com/#!/\n"
                     " * Wondering why the script is called John Bercow? https://www.youtube.com/watch?v=VYycQTm2HrM&ab_channel=TheSun\n"
                     "\n"
-                    " * AVAILABLE ENTRY VECTORS:\n"
+                    " * EXAMPLE AVAILABLE ENTRY VECTORS:\n"
                     " *** see ./entry_vectors/ for the FULL list ***\n"
                    f"{vec_str}\n"
         )

@@ -11,19 +11,17 @@ Explanation for the different scripts:
 - `entry_vectors`: contains the `.fa` files of the SAPP vectors in which cloning can be automated.
 
 ```
-usage: JohnBercow.py [-h] [--order_pdbs ORDER_PDBS] [--order_fasta ORDER_FASTA] --order_name ORDER_NAME --vector_db VECTOR_DB --gg_vector GG_VECTOR [GG_VECTOR ...] --species SPECIES --design_prefix
-                     DESIGN_PREFIX --design_id DESIGN_ID [--skip_idt_query] [--idt_score IDT_SCORE] [--starting_kmers_weight STARTING_KMERS_WEIGHT] [--n_domesticator_steps N_DOMESTICATOR_STEPS]
-                     [--max_attempts MAX_ATTEMPTS] [--max_length MAX_LENGTH] [--print_hto] [--no_layout] [--no_plasmids] [--verbose] [--echo]
+usage: JohnBercow.py [-h] [--order_pdbs ORDER_PDBS] [--order_fasta ORDER_FASTA] --order_name ORDER_NAME --gg_vector GG_VECTOR [GG_VECTOR ...] --species SPECIES --design_prefix DESIGN_PREFIX --design_id DESIGN_ID [--skip_idt_query] [--idt_score IDT_SCORE]
+                     [--starting_kmers_weight STARTING_KMERS_WEIGHT] [--n_domesticator_steps N_DOMESTICATOR_STEPS] [--max_attempts MAX_ATTEMPTS] [--max_length MAX_LENGTH] [--print_hto] [--no_layout] [--no_plasmids] [--verbose] [--echo]
 
  * Generates an IDT-ready .xlsx file for ordering eBlocks from a folder of PDBs and/or a concatenated FASTA file.
  * Appropriate overhangs for Golden Gate cloning into entry vector(s) of interest are added automatically.
- * Sequences are queried against IDT, and RT is repeated until synthesiability is achieved.
  * RECOMMENDED: check your GG assemblies at https://goldengate.neb.com/#!/
  * Wondering why the script is called John Bercow? https://www.youtube.com/watch?v=VYycQTm2HrM&ab_channel=TheSun
 
  * EXAMPLE AVAILABLE ENTRY VECTORS:
+ *** see ./entry_vectors/ for the FULL list ***
  - LM0627 (BsaI): C-term SNAC-His | MSG[...]GSGSHHWGSTHHHHHH
- - LM0668 (BsaI): N-term MGLP and C-term GS-FGG | MGLPDSLEFIASKLAWHHHHHHSG[...]GSGSSGSGEGQQHHLGGAKQAGDV
  - LM0670 (BsaI): C-term His | MSG[...]GSHHHHHH
  - LM0671 (BsaI): N-term sfGFP and C-term His | MSKGEELFTGVVPILVELDGDVNGHKFSVRGEGEGDATNGKLTLKFICTTGKLPVPWPTLVTTLTYGVQCFARYPDHMKQHDFFKSAMPEGYVQERTISFKDDGTYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNFNSHNVYITADKQKNGIKANFKIRHNVEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSVLSKDPNEKRDHMVLLEFVTAAGITHGMDELYKGSSG[...]GSHHHHHH
  - LM0673 (BsaI): N-term sfGFP-SNAC and C-term His | MSKGEELFTGVVPILVELDGDVNGHKFSVRGEGEGDATNGKLTLKFICTTGKLPVPWPTLVTTLTYGVQCFARYPDHMKQHDFFKSAMPEGYVQERTISFKDDGTYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNFNSHNVYITADKQKNGIKANFKIRHNVEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSVLSKDPNEKRDHMVLLEFVTAAGITHGMDELYKGGSHHWSSG[...]GSHHHHHH
@@ -66,7 +64,7 @@ options:
   --no_layout           do not apply automated layout formatting.
   --no_plasmids         do not generate the cloned plasmid maps.
   --verbose             increase the verbosity of th e output (recommended).
-  --echo                generates outputs formated as 384w plates (for ordering into ECHO-qualified plates).
+  --echo                generates outputs formated as 384w plates (for ordering into ECHO-qualified plates). Currently only available in conjuction with the no_layout option.
 ```
 
 ---
