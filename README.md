@@ -12,5 +12,10 @@ Content:
 - `JB`: contains scripts/files for automated DNA fragment generation for SAPP.
 - `SAPP`: contains scripts/files for automated analysis of protein expression/purification data generated with the SAPP protocol(s).
 - `DMX`: contains the scripts/files for demultiplexing oligo pools.
+- `TMSC_apptainer.def`: definition for building the apptainer to run the different scripts
+
+---
+### Note on apptainer   
+We recommend building the above apptainer and execute the scritps/notebooks with them to resolve any dependency issues you may encounter.
 
 
