@@ -46,30 +46,18 @@ vectors = {
     'LM0673':['BsaI','MSKGEELFTGVVPILVELDGDVNGHKFSVRGEGEGDATNGKLTLKFICTTGKLPVPWPTLVTTLTYGVQCFARYPDHMKQHDFFKSAMPEGYVQERTISFKDDGTYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNFNSHNVYITADKQKNGIKANFKIRHNVEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSVLSKDPNEKRDHMVLLEFVTAAGITHGMDELYKGGSHHWSSG','GSHHHHHH','agga','ggttcc', 'N-term sfGFP-SNAC and C-term His'],
     'LM1371':['BsaI','MSHHHHHHSG','GS','agga','ggttcc', 'N-term His'],
     'LM1425':['BsaI','MSG','GSGLNDIFEAQKIEWHESHHHHHH','agga','ggttcc', 'C-term AviTag-His'],
-    'MA0001':['SapI','MGK','','aaa','tga', 'pDecoy (mammalian vector)'],
-    'MA0002':['SapI','MKLLSSIEQACDICRLKKLKCSKEKPKCAKCLKNNWECRYSPKTKRSPLTRAHLTEVESRLERLEQLFLLIFPREDLDMILKMDSLQDIKALLTGLFVQDNVNKDAVTDRLASVETDMPLTLRQHRISATSSSEESSNKGQRQLTVSPEFPGGSK','','aaa','tga', 'pBind-GAL4 (mammalian vector)'],
-    'MA0003':['SapI','MKLLSSIEQACPKKKRKVDEFPGISTAPPTDVSLGDELHLDGEDVAMAHADALDDFDLDMLGDGDSPGPGSPGGSK','','aaa','tga', 'pAct-VP16 (mammalian vector)'],
-    'MA0004':['SapI','MKLLSSIEQACPKKKRKVDEFPGISTAPPTDVSLGDELHLDGEDVAMAHADALDDFDLDMLGDGDSPGPGSPEAAAK','','aaa','tga', 'pAct-rigid-VP16 (mammalian vector)'],
-    'MA0005':['SapI','xxx','xxx','aaa','tga', 'pBind-ZF6-4 (mammalian vector)'],
-    'MA0006':['SapI','xxx','xxx','aaa','tga', 'pAct-p65 (mammalian vector)'],
-    'MA0007':['BsaI','xxx','xxx','agga','ggttcc', 'N-term LHD101A and C-term SNAC-His'],
-    'MA0008':['BsaI','xxx','xxx','agga','ggttcc', 'N-term LHD101B and C-term SNAC-His'],
-    'MA0009':['SapI','xxx','xxx','aaa','tga', 'soluble mammalian expression'],
-    'MA0010':['SapI','xxx','xxx','aaa','tga', 'thethered mammalian expression'],
     'BW1001':['BsaI','MSG','GSSGSGGSGGGGSGGSSSGGVTGYRLFEEILGSHHHHHH','agga','ggttcc', 'C-term smBiT-His'],
     'BW1002':['BsaI','MSG','GSSGSGGSGGGGSGGSSSGGVTGYRLFEEILGSTYKLILNGKTLKGETTTEAVDAATAEKVFKQYANDNGVDGEWTYDDATKTFTVTEGSHHHHHH','agga','ggttcc', 'C-term smBiT-GB1-His'],
     'BW1003':['BsaI','MSG','GSSGSGGSGGGGSGGSSSGGVFTLEDFVGDWEQTAAYNLDQVLEQGGVSSLLQNLAVSVTPIQRIVRSGENALKIDIHVIIPYEGLSADQMAQIEEVFKVVYPVDDHHFKVILPYGTLVIDGVTPNMLNYFGRPYEGIAVFDGKKITVTGTLWNGNKIIDERLITPDGSMLFRVTINSGSHHHHHH','agga','ggttcc', 'C-term lgBiT'],
     'BW1004':['BsaI','MSGHHHHHHGSVTGYRLFEEILGGSGSGGSGGGGSGGSSSGG','GS','agga','ggttcc', 'N-term His-smBiT'],
     'BW1005':['BsaI','MSGHHHHHHGSTYKLILNGKTLKGETTTEAVDAATAEKVFKQYANDNGVDGEWTYDDATKTFTVTEGSVTGYRLFEEILGGSGSGGSGGGGSGGSSSGG','GS','agga','ggttcc', 'N-term His-GB1-smBiT'],
     'BW1006':['BsaI','MSGHHHHHHGSVFTLEDFVGDWEQTAAYNLDQVLEQGGVSSLLQNLAVSVTPIQRIVRSGENALKIDIHVIIPYEGLSADQMAQIEEVFKVVYPVDDHHFKVILPYGTLVIDGVTPNMLNYFGRPYEGIAVFDGKKITVTGTLWNGNKIIDERLITPDGSMLFRVTINSGGSGSGGSGGGGSGGSSSGG','GS','agga','ggttcc', 'N-term His-lgBiT'],
-    'AL0001':['BsaI','MSG','GS','agga','ggttcc', 'Just your POI (almost)'],
-    'PL1337':['BsaI','MSGYKLILNGKTLKGETTTEAVDAATAEKVFKQYANDNGVDGEWTYDDATKTFTVTEGSSG','GSHHHHHH','agga','ggttcc', 'N-term GB1 and C-term His'],
 }
 
 vec_str = '\n'.join([f' - {k} ({v[0]}): {v[5]} | {v[1]}[...]{v[2]}' for k, v in vectors.items()]) # for argparse description
 
 # All lab-available plasmids
-gg_vectors = glob.glob('/software/lab/johnbercow/entry_vectors/*.fa')
+gg_vectors = glob.glob('./entry_vectors/*.fa')
 entry_vectors = {}
 for v in gg_vectors:
     records = SeqIO.parse(v, 'fasta')
@@ -123,7 +111,7 @@ parser = argparse.ArgumentParser(
                     " * Wondering why the script is called John Bercow? https://www.youtube.com/watch?v=VYycQTm2HrM&ab_channel=TheSun\n"
                     "\n"
                     " * AVAILABLE ENTRY VECTORS:\n"
-                    " *** see /net/software/lab/johnbercow/entry_vectors/ for the FULL list ***\n"
+                    " *** see ./entry_vectors/ for the FULL list ***\n"
                    f"{vec_str}\n"
         )
 # REQUIRED
@@ -845,7 +833,7 @@ if args.no_layout:
         insert_to_vector = 2 # target insert:vector molar ratio
 
         eblock_bp = df['length_eblock'].median()
-        vector_bp = len([str(r.seq) for r in SeqIO.parse(glob.glob(f'/software/lab/johnbercow/entry_vectors/{args.gg_vector[0]}*.fa')[0], 'fasta')][0]) # only considers first vector if multiple were specified
+        vector_bp = len([str(r.seq) for r in SeqIO.parse(glob.glob(f'./entry_vectors/{args.gg_vector[0]}*.fa')[0], 'fasta')][0]) # only considers first vector if multiple were specified
         vector_vol = mol_vector / (((vector_conc * 0.000000001) / ((vector_bp * 617.96) + 36.04)) * 1000000000000000)
         eblock_vol = 0.025 * np.ceil(((mol_vector * insert_to_vector) / (((eblock_conc * 0.000000001) / ((eblock_bp * 617.96) + 36.04)) * 1000000000000000)) / 0.025)
         mm_vol = tot_rxn_vol - eblock_vol
