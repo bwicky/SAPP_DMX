@@ -15,7 +15,20 @@ Content:
 - `TMSC_apptainer.def`: definition for building the apptainer to run the different scripts
 
 ---
-### Note on apptainer   
+## Note on apptainer   
 We recommend building the above apptainer and execute the scritps/notebooks with them to resolve any dependency issues you may encounter.
 
-
+---
+## Cite
+If you use this code in your research, please cite the following paper:
+```
+@article{qian2025_SAPP_DMX,
+	title = {Accelerating protein design by scaling experimental characterization},
+	author = {Qian, Jason and Milles, Lukas F. and Wicky, Basile I. M. and Motmaen, Amir and Li, Xinting and Kibler, Ryan D. and Stewart, Lance and Baker, David},
+	url = {https://www.biorxiv.org/content/10.1101/2025.08.05.668824v1},
+	doi = {10.1101/2025.08.05.668824},
+	journal = {bioRxiv},
+	publisher={Cold Spring Harbor Laboratory},
+	year = {2025},
+}
+```
